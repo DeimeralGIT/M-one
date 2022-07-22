@@ -81,7 +81,7 @@ class TaskDetails extends StatelessWidget {
             Navigator.of(context).pop();
           }
         }),
-        dialogButton("cancel", () => Navigator.of(context).pop()),
+        dialogButton("Cancel", () => Navigator.of(context).pop()),
       ],
     );
   }

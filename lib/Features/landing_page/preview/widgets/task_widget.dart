@@ -1,5 +1,6 @@
 // ignore_for_file: use_key_in_widget_constructors, must_be_immutable
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:m_one/Features/landing_page/manager/landing_page_bloc.dart';
@@ -10,16 +11,19 @@ class TaskWidget extends StatelessWidget {
   TaskModel taskModel;
   LandingPageBloc landingPageBloc;
   List<TaskModel> taskModelList;
+  String taskGroupTag;
   bool sortByDate;
   TaskWidget({
     required this.taskModel,
     required this.landingPageBloc,
     required this.taskModelList,
     required this.sortByDate,
+    required this.taskGroupTag,
   });
   @override
   Widget build(BuildContext context) {
     return Slidable(
+      groupTag: taskGroupTag,
       endActionPane: ActionPane(
         extentRatio: 0.2,
         motion: const ScrollMotion(),
