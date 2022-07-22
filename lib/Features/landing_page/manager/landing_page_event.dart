@@ -11,7 +11,8 @@ class LandingPageFetchTasksEvent extends LandingPageEvent {
 
 class LandingPageAddTaskEvent extends LandingPageEvent {
   TaskModel taskModel;
-  LandingPageAddTaskEvent(this.taskModel);
+  bool sortByDate;
+  LandingPageAddTaskEvent(this.taskModel, this.sortByDate);
 }
 
 class LandingPageRemoveTaskEvent extends LandingPageEvent {
@@ -22,7 +23,8 @@ class LandingPageRemoveTaskEvent extends LandingPageEvent {
 class LandingPageUpdateTaskEvent extends LandingPageEvent {
   TaskModel oldTaskModel;
   TaskModel newTaskModel;
-  LandingPageUpdateTaskEvent(this.oldTaskModel, this.newTaskModel);
+  bool sortByDate;
+  LandingPageUpdateTaskEvent(this.oldTaskModel, this.newTaskModel, this.sortByDate);
 }
 
 class LandingPageSortTasksByDateEvent extends LandingPageEvent {

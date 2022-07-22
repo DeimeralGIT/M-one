@@ -10,7 +10,8 @@ import 'dialog_buttons.dart';
 class AddTaskFields extends StatelessWidget {
   LandingPageBloc landingPageBloc;
   List<TaskModel> taskModelList;
-  AddTaskFields(this.landingPageBloc, this.taskModelList);
+  bool sortByDate;
+  AddTaskFields(this.landingPageBloc, this.taskModelList, this.sortByDate);
   late final _formKey = GlobalKey<FormState>();
 
   @override
@@ -59,6 +60,7 @@ class AddTaskFields extends StatelessWidget {
                   completed: false,
                   lastModifiedDateTime: DateTime.now(),
                 ),
+                sortByDate,
               ),
             );
             Navigator.of(context).pop();

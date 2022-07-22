@@ -24,7 +24,7 @@ class LandingPageBloc extends Bloc<LandingPageEvent, LandingPageState> {
     on<LandingPageAddTaskEvent>((event, emit) {
       emit(LandingPageStateTaskAddingState());
       addTask(event.taskModel).then((pass) {
-        add(LandingPageLoadTasksEvent());
+        add(LandingPageSortTasksByDateEvent(event.sortByDate));
       });
     });
 
@@ -38,17 +38,17 @@ class LandingPageBloc extends Bloc<LandingPageEvent, LandingPageState> {
     on<LandingPageUpdateTaskEvent>((event, emit) {
       emit(LandingPageStateTaskRemovingState());
       removeTask(event.oldTaskModel).then((pass) {
-        add(LandingPageAddTaskEvent(event.newTaskModel));
+        add(LandingPageAddTaskEvent(event.newTaskModel, event.sortByDate));
       });
     });
 
     on<LandingPageSortTasksByDateEvent>((event, emit) {
       emit(LandingPageStateTaskSortingState());
       event.byDate
-          ? sortByDate().then((pass) {
+          ? sortTasksByDate().then((pass) {
               add(LandingPageLoadTasksEvent());
             })
-          : sortByName().then((pass) {
+          : sortTasksByName().then((pass) {
               add(LandingPageLoadTasksEvent());
             });
     });

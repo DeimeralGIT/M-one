@@ -32,7 +32,7 @@ Future removeTask(TaskModel taskModel) async => readTasks().then((currentContent
       return;
     });
 
-Future sortByName() async => readTasks().then((currentContent) async {
+Future sortTasksByName() async => readTasks().then((currentContent) async {
       final file = await _localFile;
       List<String> sortedList = currentContent.keys.toList()..sort();
       Map<String, dynamic> sortedMap = {};
@@ -43,7 +43,7 @@ Future sortByName() async => readTasks().then((currentContent) async {
       return;
     });
 
-Future sortByDate() async => readTasks().then((currentContent) async {
+Future sortTasksByDate() async => readTasks().then((currentContent) async {
       final file = await _localFile;
       List<String> sortedList = currentContent.values.map((e) => e["last_modified_date_time"].toString()).toList()..sort();
       Map<String, dynamic> sortedMap = {};

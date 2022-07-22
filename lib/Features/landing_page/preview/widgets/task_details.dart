@@ -10,7 +10,13 @@ class TaskDetails extends StatelessWidget {
   LandingPageBloc landingPageBloc;
   TaskModel oldTaskModel;
   List<TaskModel> taskModelList;
-  TaskDetails(this.landingPageBloc, this.oldTaskModel, this.taskModelList);
+  bool sortByDate;
+  TaskDetails(
+    this.landingPageBloc,
+    this.oldTaskModel,
+    this.taskModelList,
+    this.sortByDate,
+  );
   late final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -59,6 +65,7 @@ class TaskDetails extends StatelessWidget {
                   completed: false,
                   lastModifiedDateTime: DateTime.now(),
                 ),
+                sortByDate,
               ),
             );
             Navigator.of(context).pop();

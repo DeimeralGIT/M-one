@@ -9,6 +9,7 @@ import 'package:m_one/core/models/task_model.dart';
 
 class LandingPage extends StatelessWidget {
   LandingPageBloc landingPageBloc = LandingPageBloc();
+  bool sortByDate = true;
   late LandingPageStateTasksLoadedState currentState;
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,7 @@ class LandingPage extends StatelessWidget {
                     taskModel: task,
                     landingPageBloc: landingPageBloc,
                     taskModelList: state.list.values.toList(),
+                    sortByDate: sortByDate,
                   ),
                 )
                 .toList();
@@ -61,7 +63,7 @@ class LandingPage extends StatelessWidget {
         context: context,
         barrierDismissible: false,
         builder: (builder) {
-          return AddTaskFields(landingPageBloc, taskModelList);
+          return AddTaskFields(landingPageBloc, taskModelList, sortByDate);
         });
   }
 
@@ -77,14 +79,8 @@ class LandingPage extends StatelessWidget {
         }).toList();
       },
       onSelected: (item) {
-        switch (item) {
-          case 'Sort by Name':
-            landingPageBloc.add(LandingPageSortTasksByDateEvent(false));
-            break;
-          case 'Sort by Date':
-            landingPageBloc.add(LandingPageSortTasksByDateEvent(true));
-            break;
-        }
+        sortByDate = item == "Sort by Date";
+        landingPageBloc.add(LandingPageSortTasksByDateEvent(sortByDate));
       },
     );
   }
