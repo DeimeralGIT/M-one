@@ -1,16 +1,11 @@
 # m_one
 
-A new Flutter project.
+A test app for M-One flutter position application
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+features
+ - Single main page containing 
+ -  - a floating action button to add tasks
+ -  - a menu option on the appbar for sorting the tasks by date or by name (by default option is by date)
+ -  - task cards can be
+ -  -  - pressed to expand description | update | complete/remove
+ -  -  - slided left to preview the delete icon
